@@ -2,10 +2,23 @@
   "name": "i18n-generator",
   "version": "1.0.0",
   "description": "To generate, standardize, auto-translate i18n locale files",
-  "main": "src/index.ts",
+  "main": "src/generate.ts",
   "author": "Nilch <46506221+SpaceGliderr@users.noreply.github.com>",
   "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "run:generate": "node --loader ts-node/esm src/generate.ts",
+    "run:standardize": "node src/standardize.ts",
+    "run:format": "node src/format.ts",
+    "run:translate": "node --loader ts-node/esm src/translate.ts",
+    "generate": "yarn run run:generate",
+    "standardize": "yarn run run:standardize",
+    "format": "yarn run run:format",
+    "translate": "yarn run run:translate"
+  },
   "devDependencies": {
+    "@types/node": "^17.0.21",
+    "@types/rc": "^1.2.0",
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
     "eslint": "^8.9.0",
@@ -14,5 +27,11 @@
     "eslint-plugin-import": "^2.25.4",
     "prettier": "2.5.1",
     "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.0",
+    "json2csv": "^5.0.7",
+    "rc": "^1.2.8",
+    "ts-node": "^10.7.0"
   }
 }
